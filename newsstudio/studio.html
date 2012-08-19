@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Studio</title>
+		
+		<meta charset="utf-8">
+		
+		<link href="css/base.css" rel="stylesheet">
+		<link href="css/studio.css" rel="stylesheet">
+		<link href="css/intro.css" rel="stylesheet">
+		<link href="css/outro.css" rel="stylesheet">
+		
+		<script type="text/javascript" src="javascript/seriously/seriously.js"></script>
+        <script type="text/javascript" src="javascript/seriously/effects/seriously.chroma.js"></script>
+		
+		<script type="text/javascript">
+			function load() {
+				var seriously = new Seriously();
+				var seriously_video = seriously.source('#studio #speaker video');
+				var seriously_target = seriously.target('#studio #speaker #output');
+				var seriously_chroma = seriously.effect('chroma');
+			             
+			    seriously_chroma.screen = 'rgb(77, 158, 64)';
+			    seriously_chroma.weight = 1;
+			    seriously_chroma.balance = 1;
+			    seriously_chroma.clipBlack = 0.5;
+			    seriously_chroma.clipWhite = 0.7;
+			    seriously_chroma.source = seriously_video;
+			    seriously_target.source = seriously_chroma;
+			    
+			    seriously.go();
+			    
+				function start() {
+					intro();
+				}
+				
+				function intro() {
+					document.querySelector('#intro video').play();
+					setTimeout(to_studio, 6000);
+				}
+				
+				function to_studio() {
+					document.querySelector('#studio #speaker video').play();
+					setTimeout(function () {
+						document.querySelector('#viewport').style.MozTransform = 'scale(0.45) translateY(25%)';
+					}, 1000);
+					setTimeout(function () {
+						document.querySelector('#viewport').style.MozTransform = 'scale(0.4) translateY(15%)';
+					}, 2000);
+					setTimeout(function () {
+						document.querySelector('#viewport').style.MozTransform = 'scale(0.45) translateY(5%)';
+					}, 3000);
+					setTimeout(function () {
+						document.querySelector('#viewport').style.MozTransform = 'scale(1) translateY(0%)';
+						document.querySelector('#viewport').setAttribute('class', 'studio');
+					}, 4000);
+					setTimeout(function() {
+						document.querySelector('#intro video').pause();
+						document.querySelector('#studio #beitrag video').src = 'videos/tips.ogv';
+						document.querySelector('#studio #beitrag video').load();
+						document.querySelector('#studio #background').style.MozTransform = 'skewY(1deg)';
+						document.querySelector('#studio #preview').style.MozTransform = 'skewY(1deg)';
+					}, 6000);
+					setTimeout(function() {
+						document.querySelector('#studio #einblendung #text #title').innerHTML = 'BBC World News';
+						document.querySelector('#studio #einblendung #text #subtitle').innerHTML = '';
+						document.querySelector('#studio #einblendung').style.opacity = 1;
+					}, 7000);
+					setTimeout(function() {
+						document.querySelector('#studio #preview img').src = 'images/tips.jpg';
+						document.querySelector('#studio #preview #text').innerHTML = '1 Minute Living Tips';
+					}, 10000);
+					setTimeout(function() {
+						document.querySelector('#studio #einblendung').style.opacity = 0;
+					}, 12000);
+					setTimeout(function() {
+						living_tips();
+					}, 14000);
+				}
+				
+				function living_tips() {
+					if (document.querySelector('#studio #beitrag video').src != 'videos/tips.ogv') {
+						document.querySelector('#studio #beitrag video').src = 'videos/tips.ogv';
+						document.querySelector('#studio #beitrag video').load();
+					}
+					document.querySelector('#studio #beitrag').style.opacity = 1;
+					document.querySelector('#studio #beitrag video').play();
+					setTimeout(function() {
+						document.querySelector('#studio #einblendung #text #title').innerHTML = '1 Minute Living Tips';
+						document.querySelector('#studio #einblendung #text #subtitle').innerHTML = '';
+						document.querySelector('#studio #einblendung').style.opacity = 1;
+					}, 2000);
+					setTimeout(function() {
+						document.querySelector('#studio #einblendung').style.opacity = 0;
+					}, 7000);
+					setTimeout(function () {
+						document.querySelector('#studio #speaker video').style.display = 'none';
+					}, 39000);
+					setTimeout(function () {
+						document.querySelector('#studio #speaker video').src = 'videos/speaker/002.ogv';
+						document.querySelector('#studio #speaker video').load();
+						document.querySelector('#studio #preview img').src = 'images/iran1.jpg';
+						document.querySelector('#studio #preview #text').innerHTML = 'Oil Embargo Against Iran';
+					}, 40000);
+					setTimeout(function () {
+						document.querySelector('#studio #speaker video').style.display = 'block';
+					}, 41000);
+					setTimeout(function () {
+						document.querySelector('#studio #speaker video').play();
+					}, 45500);
+					setTimeout(function () {
+						document.querySelector('#studio #beitrag').style.opacity = 0;
+						document.querySelector('#studio #beitrag video').pause();
+					}, 46500);
+					setTimeout(function () {
+						document.querySelector('#studio #beitrag video').src = 'videos/syrien.ogv';
+						document.querySelector('#studio #beitrag video').load();
+					}, 48000);
+					setTimeout(function () {
+						document.querySelector('#studio #preview img').src = 'images/iran2.jpg';
+					}, 94000);
+					setTimeout(function () {
+						document.querySelector('#studio #preview img').src = 'images/syrien.jpg';
+						document.querySelector('#studio #preview #text').innerHTML = 'Syrian Revolution';
+					}, 129000);
+					setTimeout(function (){
+						syrien();
+					}, 137000);
+				}
+				
+				function syrien() {
+					if (document.querySelector('#studio #beitrag video').src != 'videos/syrien.ogv') {
+						document.querySelector('#studio #beitrag video').src = 'videos/syrien.ogv';
+						document.querySelector('#studio #beitrag video').load();
+					}
+					document.querySelector('#studio #beitrag').style.opacity = 1;
+					document.querySelector('#studio #beitrag video').play();
+					setTimeout(function() {
+						document.querySelector('#studio #einblendung #text #title').innerHTML = 'Syrian Revolution';
+						document.querySelector('#studio #einblendung #text #subtitle').innerHTML = '';
+						document.querySelector('#studio #einblendung').style.opacity = 1;
+					}, 2000);
+					setTimeout(function() {
+						document.querySelector('#studio #einblendung').style.opacity = 0;
+					}, 7000);
+					setTimeout(function () {
+						document.querySelector('#studio #speaker video').style.display = 'none';
+					}, 98000);
+					setTimeout(function () {
+						document.querySelector('#studio #speaker video').src = 'videos/speaker/003.ogv';
+						document.querySelector('#studio #speaker video').load();
+						document.querySelector('#studio #preview img').src = 'images/foxconn.jpg';
+						document.querySelector('#studio #preview #text').innerHTML = 'Foxconn Raises Wages';
+					}, 99000);
+					setTimeout(function () {
+						document.querySelector('#studio #speaker video').style.display = 'block';
+					}, 100000);
+					setTimeout(function() {
+						document.querySelector('#studio #speaker video').play();
+					}, 108500);
+					setTimeout(function() {
+						document.querySelector('#studio #beitrag').style.opacity = 0;
+						document.querySelector('#studio #beitrag video').pause();
+					}, 109500);
+					setTimeout(function() {
+						document.querySelector('#studio #beitrag video').src = 'videos/foxconn.ogv';
+						document.querySelector('#studio #beitrag video').load();
+					}, 110500);
+					setTimeout(function() {
+						foxconn();
+					}, 115000);
+				}
+				
+				function foxconn() {
+					if (document.querySelector('#studio #beitrag video').src != 'videos/foxconn.ogv') {
+						document.querySelector('#studio #beitrag video').src = 'videos/foxconn.ogv';
+						document.querySelector('#studio #beitrag video').load();
+					}
+					document.querySelector('#studio #beitrag').style.opacity = 1;
+					document.querySelector('#studio #beitrag video').play();
+					setTimeout(function() {
+						document.querySelector('#studio #einblendung #text #title').innerHTML = 'Foxconn Raises Wages';
+						document.querySelector('#studio #einblendung #text #subtitle').innerHTML = '';
+						document.querySelector('#studio #einblendung').style.opacity = 1;
+					}, 2000);
+					setTimeout(function() {
+						document.querySelector('#studio #einblendung').style.opacity = 0;
+					}, 7000);
+					setTimeout(function () {
+						document.querySelector('#studio #speaker video').style.display = 'none';
+					}, 68000);
+					setTimeout(function () {
+						document.querySelector('#studio #speaker video').src = 'videos/speaker/004.ogv';
+						document.querySelector('#studio #speaker video').load();
+						document.querySelector('#studio #preview img').src = 'images/acta.jpg';
+						document.querySelector('#studio #preview #text').innerHTML = 'Protests Against Acta';
+					}, 69000);
+					setTimeout(function () {
+						document.querySelector('#studio #speaker video').style.display = 'block';
+					}, 70000);
+					setTimeout(function() {
+						document.querySelector('#studio #speaker video').play();
+					}, 77000);
+					setTimeout(function() {
+						document.querySelector('#studio #beitrag').style.opacity = 0;
+						document.querySelector('#studio #beitrag video').pause();
+					}, 78500)
+					setTimeout(function() {
+						document.querySelector('#studio #beitrag video').src = 'videos/acta.ogv';
+						document.querySelector('#studio #beitrag video').load();
+					}, 79500);
+					setTimeout(function() {
+						acta();
+					}, 83000);
+				}
+				
+				function acta() {
+					if (document.querySelector('#studio #beitrag video').src != 'videos/acta.ogv') {
+						document.querySelector('#studio #beitrag video').src = 'videos/acta.ogv';
+						document.querySelector('#studio #beitrag video').load();
+					}
+					document.querySelector('#studio #beitrag').style.opacity = 1;
+					document.querySelector('#studio #beitrag video').play();
+					setTimeout(function() {
+						document.querySelector('#studio #einblendung #text #title').innerHTML = 'Protests Against Acta';
+						document.querySelector('#studio #einblendung #text #subtitle').innerHTML = '';
+						document.querySelector('#studio #einblendung').style.opacity = 1;
+					}, 2000);
+					setTimeout(function() {
+						document.querySelector('#studio #einblendung').style.opacity = 0;
+					}, 7000);
+					setTimeout(function () {
+						document.querySelector('#studio #speaker video').style.display = 'none';
+					}, 48500);
+					setTimeout(function () {
+						document.querySelector('#studio #speaker video').src = 'videos/speaker/005.ogv';
+						document.querySelector('#studio #speaker video').load();
+						document.querySelector('#studio #preview img').src = 'images/doener.jpg';
+						document.querySelector('#studio #preview #text').innerHTML = 'Faux-Pas Word: Döner-Morde';
+					}, 49500);
+					setTimeout(function () {
+						document.querySelector('#studio #speaker video').style.display = 'block';
+					}, 50500);
+					setTimeout(function() {
+						document.querySelector('#studio #speaker video').play();
+					}, 61500);
+					setTimeout(function() {
+						document.querySelector('#studio #beitrag').style.opacity = 0;
+						document.querySelector('#studio #beitrag video').pause();
+					}, 65000)
+					setTimeout(function() {
+						document.querySelector('#studio #beitrag video').src = 'videos/doener.ogv';
+						document.querySelector('#studio #beitrag video').load();
+					}, 66000);
+					setTimeout(function() {
+						doener();
+					}, 73500);
+				}
+				
+				function doener() {
+					if (document.querySelector('#studio #beitrag video').src != 'videos/doener.ogv') {
+						document.querySelector('#studio #beitrag video').src = 'videos/doener.ogv';
+						document.querySelector('#studio #beitrag video').load();
+					}
+					document.querySelector('#studio #beitrag').style.opacity = 1;
+					document.querySelector('#studio #beitrag video').play();
+					setTimeout(function() {
+						document.querySelector('#studio #einblendung #text #title').innerHTML = 'Faux-Pas Word: Döner-Morde';
+						document.querySelector('#studio #einblendung #text #subtitle').innerHTML = '';
+						document.querySelector('#studio #einblendung').style.opacity = 1;
+					}, 2000);
+					setTimeout(function() {
+						document.querySelector('#studio #einblendung').style.opacity = 0;
+					}, 7000);
+					setTimeout(function () {
+						document.querySelector('#studio #speaker video').style.display = 'none';
+					}, 78000);
+					setTimeout(function () {
+						document.querySelector('#studio #speaker video').src = 'videos/speaker/006.ogv';
+						document.querySelector('#studio #speaker video').load();
+						document.querySelector('#studio #preview img').src = 'images/solarstorms.jpg';
+						document.querySelector('#studio #preview #text').innerHTML = 'Solar Storms Predicted';
+					}, 79000);
+					setTimeout(function () {
+						document.querySelector('#studio #speaker video').style.display = 'block';
+					}, 80000);
+					setTimeout(function() {
+						document.querySelector('#studio #speaker video').play();
+					}, 90500);
+					setTimeout(function() {
+						document.querySelector('#studio #beitrag').style.opacity = 0;
+						document.querySelector('#studio #beitrag video').pause();
+					}, 93000)
+					setTimeout(function() {
+						document.querySelector('#studio #beitrag video').src = 'videos/solarstorms.ogv';
+						document.querySelector('#studio #beitrag video').load();
+					}, 98500);
+					setTimeout(function() {
+						solarstorms();
+					}, 107500);
+				}
+				
+				function solarstorms() {
+					if (document.querySelector('#studio #beitrag video').src != 'videos/solarstorms.ogv') {
+						document.querySelector('#studio #beitrag video').src = 'videos/solarstorms.ogv';
+						document.querySelector('#studio #beitrag video').load();
+					}
+					document.querySelector('#studio #beitrag').style.opacity = 1;
+					document.querySelector('#studio #beitrag video').play();
+					setTimeout(function() {
+						document.querySelector('#studio #einblendung #text #title').innerHTML = 'Solar Storms Predicted';
+						document.querySelector('#studio #einblendung #text #subtitle').innerHTML = '';
+						document.querySelector('#studio #einblendung').style.opacity = 1;
+					}, 2000);
+					setTimeout(function() {
+						document.querySelector('#studio #einblendung').style.opacity = 0;
+					}, 7000);
+					setTimeout(function () {
+						document.querySelector('#studio #speaker video').style.display = 'none';
+					}, 29000);
+					setTimeout(function () {
+						document.querySelector('#studio #speaker video').src = 'videos/speaker/007.ogv';
+						document.querySelector('#studio #speaker video').load();
+						document.querySelector('#studio #preview img').src = 'images/worldnews.jpg';
+						document.querySelector('#studio #preview #text').innerHTML = 'BBC World News';
+					}, 30000);
+					setTimeout(function () {
+						document.querySelector('#studio #speaker video').style.display = 'block';
+					}, 31000);
+					setTimeout(function() {
+						document.querySelector('#studio #speaker video').play();
+					}, 40000);
+					setTimeout(function() {
+						document.querySelector('#studio #beitrag').style.opacity = 0;
+						document.querySelector('#studio #beitrag video').pause();
+					}, 41000)
+					setTimeout(function() {
+						to_outro();
+					}, 46000);
+				}
+				
+				function to_outro() {
+					document.querySelector('#studio #background').style.MozTransform = 'skewY(0deg)';
+					document.querySelector('#studio #preview').style.MozTransform = 'skewY(0deg)';
+					setTimeout(function () {
+						document.querySelector('#viewport').style.MozTransform = 'scale(0.45) translateY(-5%)';
+					}, 1000);
+					setTimeout(function () {
+						document.querySelector('#viewport').style.MozTransform = 'scale(0.4) translateY(-15%)';
+					}, 2000);
+					setTimeout(function () {
+						document.querySelector('#viewport').style.MozTransform = 'scale(0.45) translateY(-25%)';
+					}, 3000);
+					setTimeout(function () {
+						document.querySelector('#viewport').style.MozTransform = 'scale(1) translateY(-30%)';
+						document.querySelector('#viewport').setAttribute('class', 'outro');
+						document.querySelector('#outro #text').style.top = '-1278%';
+						document.querySelector('#outro audio').play();
+					}, 4000);
+					setTimeout(function () {
+						document.querySelector('#outro video').play();
+					}, 80000 + 4000);
+					setTimeout(function () {
+						to_overview();
+					}, 80000 + 4000 + 258000)
+				}
+				
+				function to_overview() {
+					document.querySelector('#viewport').style.MozTransform = 'scale(0.2) translateY(0%)';
+					setTimeout(function() {
+						document.querySelector('#theend').style.opacity = 1;
+					}, 1000);
+				}
+				
+				setTimeout(start, 5000);
+			}			
+		</script>
+	</head>
+	<body onload="load()">
+		<div id="theend">
+			<br>
+			THE END
+		</div>
+		<div id="viewport" class="intro">
+			<div id="studio">
+				<img id="logo" src="images/logo.jpg">
+				<div id="einblendung">
+					<div id="banner"></div>
+					<div id="globus">
+						<img src="images/globus.gif" style="height: 120px;">
+					</div>
+					<div id="text">
+						<span id="title" style="font-size: 30px;"></span>
+		                <br />
+			            <span id="subtitle" style="font-size: 15px;"></span>
+			        </div>
+				</div>
+				<div id="background">	
+					<div id="wall"></div>
+					<div id="floor"></div>
+					<img id="worldmap" src="images/worldmap.png">	
+					<div id="lines">
+						<div id="red" class="line"></div>
+						<div id="yellow" class="line"></div>
+					</div>					
+				</div>
+				<div id="preview">
+					<img src="images/worldnews.jpg">
+					<div id="overlay"></div>
+					<div id="text">BBC World News</div>
+				</div>
+				<div id="speaker">
+					<video preload="auto">
+						<source src="videos/speaker/001.ogv" type="video/ogg"></source>
+					</video>
+					<img id="tisch" src="images/tisch.png">
+					<canvas id="output" height="720" width="1280"></canvas>		
+				</div>
+				<div id="beitrag">
+					<video preload="auto">
+						<source src="videos/tips.ogv" type="video/ogg"></source>
+					</video>
+				</div>	
+			</div>
+			<div id="intro">
+				<video preload="auto">
+					<source src="videos/intro.ogv" type="video/ogg"></source>
+				</video>
+			</div>
+			<div id="outro">
+				<audio src="audio/benny_hill_theme.oga"></audio>
+				<div id="text">
+					<strong style="font-size: 48pt;">Credits</strong>
+					<br>
+					<br>
+					<strong>1 Minute Living Tips</strong>
+					<br>
+					
+					<br>
+					<br>
+					<strong>Oil Embargo Against Iran</strong>
+					<br>
+					
+					<br>
+					<br>
+					<strong>Syrian Revolution</strong>
+					<br>
+					
+					<br>
+					<br>
+					<strong>Foxconn Raises Wages</strong>
+					<br>
+					
+					<br>
+					<br>
+					<strong>Protests Against Acta</strong>
+					<br>
+					
+					<br>
+					<br>
+					<strong>Faux-Pas Word: Döner-Morde</strong>
+					<br>
+					
+					<br>
+					<br>
+					<strong>Solar Storms Predicted</strong>
+					<br>
+					
+					<br>
+					<br>
+					<br>
+					<br>
+					<strong>Newsreader</strong>
+					<br>
+					
+					<br>
+					<br>
+					<strong>Post-Production</strong>
+					<br>
+					
+					<br>
+					<br>
+					<br>
+					<br>
+					<strong>Special Thanks</strong>
+					<br>
+					<br>
+					<img src="images/html5.png">
+					<br>
+					<span style="font-size: 20pt;">http://dev.w3.org/html5/spec/single-page.html</span>
+					<br>
+					<br>
+					<img src="images/firefox-logo.png" height="100px;"><img src="images/firefox-text.png" height="100px;">
+					<br>
+					<span style="font-size: 20pt;">http://www.mozilla.org/de/firefox/fx/</span>
+					<br>
+					<br>
+					Seriously.js
+					<br>
+					<span style="font-size: 20pt;">http://www.seriouslyjs.org</span>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<strong style="font-size: 48pt;">Sources</strong>
+					<br>
+					<br>
+					<strong>Oil Embargo Against Iran</strong>
+					<div style="font-size: 12pt;">
+						http://www.greenpeace.de/typo3temp/GB/d0a67aa224.jpg
+						<br>
+						http://www.waffenhq.de/specials/cvn69-eisenhower_01.jpg 
+					</div>
+					<br>
+					<br>
+					<strong>Syrian Revolution</strong>
+					<div style="font-size: 12pt;">
+						http://www.bbc.co.uk/news/world-middle-east-15625642
+						<br>
+						http://www.ard.de/rootnavi/home/-/id=1860/vv=search/cf=42/nid=1860/did=338672/cf=42/fqcw3p/index.html?q=syrien&x=0&y=0
+					</div>
+					<br>
+					<br>
+					<strong>Foxconn Raises Wages</strong>
+					<div style="font-size: 12pt;">
+						http://de.wikipedia.org/wiki/Foxconn
+						<br>
+						http://abcnews.go.com/International/trip-ifactory-nightline-unprecedented-glimpse-inside-apples-chinese/story?id=15748745
+						<br>
+						http://www.birnenblog.de/allgemein/einblick-in-die-foxconn-produktion-von-apple-abc-schickt-exklusivreporter-bill-weir-nach-shenzhen/
+					</div>
+					<br>
+					<br>
+					<strong>Protests Against Acta</strong>
+					<div style="font-size: 12pt;">
+						http://www.zdf.de/ZDFmediathek/beitrag/video/1562230/Netzschau-Protest-gegen-ACTA#/beitrag/video/1567034/ACTA:-Proteste-gegen-Internetzensur
+					</div>
+					<br>
+					<br>
+					<strong>Faux-Pas Word: Döner-Morde</strong>
+					<div style="font-size: 12pt;">
+						http://m.spiegel.de/kultur/gesellschaft/a-809512.html
+					</div>
+					<br>
+					<br>
+					<strong>Solar Storms Predicted</strong>
+					<div style="font-size: 12pt;">
+						http://www.youtube.com/watch?v=rasdr_nVK_k
+					</div>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<strong style="font-size: 48pt;">Making-Of</strong>
+					<br>
+					<br>
+					<img src="outtakes/001.jpg" style="width: 70%;">
+					<br>
+					<br>
+					<img src="outtakes/002.jpg" style="width: 70%;">
+					<br>
+					<br>
+					<img src="outtakes/003.jpg" style="width: 70%;">
+					<br>
+					<br>
+					<img src="outtakes/004.jpg" style="width: 70%;">
+					<br>
+					<br>
+					<img src="outtakes/005.jpg" style="width: 70%;">
+					<br>
+					<br>
+					<img src="outtakes/006.png" style="width: 70%;">
+					<br>
+					<br>
+					<img src="outtakes/007.png" style="width: 70%;">
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<strong style="font-size: 48pt;">Outtakes</strong>
+					<video id="outtakes" src="outtakes/outtakes.ogv"></video>
+				</div>
+			</div>
+		</div>
+    </body>
+</html> 

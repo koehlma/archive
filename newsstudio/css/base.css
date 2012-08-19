@@ -1,0 +1,59 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	
+	font-family: Ubuntu;		
+}
+		
+body {
+	overflow: hidden;
+}
+
+#viewport {
+	position: absolute;
+	top: -200%;
+	left: -200%;
+	
+	min-height: 500%;
+	min-width: 500%;
+	
+	background: -moz-linear-gradient(top, rgb(0, 0, 0), rgb(255, 255, 255));
+	
+	-moz-transition: -moz-transform 1s linear;
+}
+
+#viewport.intro {
+	-moz-transform: scale(1) translateY(30%);
+}
+
+#viewport.outro {
+	-moz-transform: scale(1) translateY(-30%);
+}
+
+#viewport.studio {
+	-moz-transform: scale(1) translateY(0%);
+}
+
+#theend  {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	
+	min-width: 100%;
+	min-height: 100%;
+	
+	z-index: 50;
+	
+	color: rgb(255, 255, 255);
+	
+	text-align: center;
+	
+	font-size: 150pt;
+	
+	background: rgb(0, 0, 0);
+	
+	opacity: 0;
+	
+	-moz-transition: opacity 4s linear;
+}
